@@ -1,20 +1,26 @@
 classDiagram
+    direction TB
+    
     class Game {
-        +Long Id
-        +String name
-        +GameStatus status
-        +Date createdAt
-        +Date updatedAt
+        + Long Id
+        + String name
+        + GameStatus status
+        + Date createdAt
+        + Date updatedAt
     }
     
     class GameModel {
-        +String name
-        +GameStatus status
+        + String name
+        + GameStatus status
     }
 
     class GameStatus {
         <<enumeration>>
+        + ACTIVE
+        + INACTIVE
+        + PENDING
     }
 
-    GameModel --> GameStatus
-    Game --> GameStatus
+    %% Relacionamentos
+    GameModel --> GameStatus : "Usa"
+    Game --> GameStatus : "Possui"
